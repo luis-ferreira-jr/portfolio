@@ -25,17 +25,36 @@
   margin-top: 36px;
 }
 
+.home__cv {
+  padding: 15px 28px;
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
+
 .home__subtitulo {
   font-family: var(--fonte-titulo);
   font-weight: 400;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 14px;
 }
 
 .home__redes {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
+}
+
+.home__rede {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  border-width: 1px;
+  color: var(--cor-texto-suave);
+}
+
+.home__rede:hover {
+  color: var(--cor-texto);
 }
 
 .home__foto-borda {
