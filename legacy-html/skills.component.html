@@ -1,0 +1,46 @@
+<section class="skills">
+  <div class="section-header">
+    <span class="section-tag">// habilidades</span>
+    <h2 class="section-title">O que eu <span class="accent">sei fazer</span></h2>
+  </div>
+
+  <div class="skills__grid">
+    <ng-container *ngFor="let cat of categories">
+      <div class="skills__group" *ngIf="hasCategory(cat)">
+        <h3 class="skills__group__title">{{ categoryLabel[cat] }}</h3>
+        <div class="skills__list">
+          <div class="skill-card" *ngFor="let skill of skillsByCategory(cat)">
+            <div class="skill-card__header">
+              <span class="skill-card__icon">{{ skill.icon }}</span>
+              <span class="skill-card__name">{{ skill.name }}</span>
+              <span class="skill-card__level">{{ skill.level }}%</span>
+            </div>
+            <div class="skill-card__bar">
+              <div class="skill-card__bar__fill" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Certificações -->
+  <div class="certifications">
+    <h3 class="certifications__title">Formação & Certificações</h3>
+    <div class="certifications__list">
+      <div class="cert-card" *ngFor="let cert of certifications">
+        <div class="cert-card__icon">🎓</div>
+        <div class="cert-card__info">
+          <p class="cert-card__name">{{ cert.title }}</p>
+          <p class="cert-card__institution">{{ cert.institution }} · {{ cert.year }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imagem decorativa -->
+  <div class="skills__visual">
+    <img src="assets/portfolio/include.png" alt="Tecnologia" class="skills__visual__img">
+    <div class="skills__visual__glow"></div>
+  </div>
+</section>

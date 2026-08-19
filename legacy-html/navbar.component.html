@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="navbar__brand">
+    <span class="navbar__brand__dot"></span>
+    <span class="navbar__brand__name">LC<span class="accent">.</span>dev</span>
+  </div>
+
+  <ul class="navbar__links" [class.open]="menuOpen">
+    <li *ngFor="let link of navLinks">
+      <a [routerLink]="link.path"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: link.path === '/'}"
+         (click)="menuOpen = false">
+        <span class="link-icon">{{ link.icon }}</span>
+        {{ link.label }}
+      </a>
+    </li>
+  </ul>
+
+  <button class="navbar__hamburger" (click)="toggleMenu()" aria-label="Menu">
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+  </button>
+</nav>

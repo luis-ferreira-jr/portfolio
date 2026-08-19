@@ -1,0 +1,49 @@
+<section class="hero">
+  <div class="hero__bg-grid"></div>
+  <div class="hero__glow"></div>
+
+  <div class="hero__content">
+    <div class="hero__text">
+      <p class="hero__text__greeting">Olá, eu sou</p>
+      <h1 class="hero__text__name">
+        Luis <span class="accent">Carlos</span>
+      </h1>
+      <div class="hero__text__role">
+        <span class="role-tag">Desenvolvedor</span>
+        <span class="role-divider">·</span>
+        <span class="role-tag">Estudante de SI</span>
+      </div>
+      <p class="hero__text__bio">
+        Transformando problemas em soluções práticas através da programação.
+        Explore meus projetos e conheça as habilidades que estou desenvolvendo neste início de carreira.
+      </p>
+
+      <div class="hero__social">
+        <p class="hero__social__label">Conecte-se comigo</p>
+        <div class="hero__social__links">
+          <a *ngFor="let link of socialLinks"
+             [href]="link.url"
+             target="_blank"
+             rel="noopener"
+             class="social-btn">
+            <img [src]="link.icon" [alt]="link.label" class="social-btn__icon">
+            <span>{{ link.label }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__image-wrap">
+      <div class="hero__image-ring hero__image-ring--outer"></div>
+      <div class="hero__image-ring hero__image-ring--inner"></div>
+      <img
+        src="assets/portfolio/luis.jpeg"
+        alt="Luis Carlos"
+        class="hero__image"
+      />
+      <div class="hero__image-badge">
+        <span>🎓 CEST</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+<section class="projects">
+  <div class="section-header">
+    <span class="section-tag">// projetos</span>
+    <h2 class="section-title">O que eu <span class="accent">construí</span></h2>
+  </div>
+
+  <!-- Filtros -->
+  <div class="projects__filters" *ngIf="!featuredOnly">
+    <button
+      *ngFor="let cat of categories"
+      class="filter-btn"
+      [class.active]="activeFilter === cat"
+      (click)="setFilter(cat)">
+      {{ categoryLabel(cat) }}
+    </button>
+  </div>
+
+  <!-- Grid de cards -->
+  <div class="projects__grid">
+    <article class="project-card" *ngFor="let project of displayedProjects" (click)="openProject(project)">
+      <div class="project-card__image">
+        <img
+          [src]="project.images[0]?.url"
+          [alt]="project.images[0]?.alt || project.title"
+          loading="lazy"
+        />
+        <div class="project-card__overlay">
+          <span class="project-card__overlay__text">Ver detalhes →</span>
+        </div>
+        <span class="project-card__category">{{ project.category }}</span>
+        <span class="project-card__featured" *ngIf="project.featured">⭐</span>
+      </div>
+
+      <div class="project-card__body">
+        <h3 class="project-card__title">{{ project.title }}</h3>
+        <p class="project-card__summary">{{ project.summary }}</p>
+        <div class="project-card__tags">
+          <span class="tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Placeholder para adicionar novo projeto -->
+    <div class="project-card project-card--add">
+      <div class="project-card--add__inner">
+        <span class="project-card--add__icon">+</span>
+        <p class="project-card--add__text">Adicione seu próximo projeto em <code>projects.data.ts</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de detalhes -->
+  <div class="project-modal" *ngIf="selectedProject" (click)="closeProject()">
+    <div class="project-modal__card" (click)="$event.stopPropagation()">
+      <button class="project-modal__close" (click)="closeProject()">✕</button>
+
+      <!-- Galeria de imagens -->
+      <div class="project-modal__gallery">
+        <img
+          [src]="selectedProject.images[activeImageIndex]?.url"
+          [alt]="selectedProject.images[activeImageIndex]?.alt"
+          class="project-modal__gallery__img"
+        />
+        <p class="project-modal__gallery__caption" *ngIf="selectedProject.images[activeImageIndex]?.caption">
+          {{ selectedProject.images[activeImageIndex].caption }}
+        </p>
+
+        <!-- Navegação da galeria -->
+        <div class="project-modal__gallery__nav" *ngIf="selectedProject.images.length > 1">
+          <button (click)="prevImage()">←</button>
+          <span>{{ activeImageIndex + 1 }} / {{ selectedProject.images.length }}</span>
+          <button (click)="nextImage()">→</button>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="project-modal__gallery__thumbs" *ngIf="selectedProject.images.length > 1">
+          <img
+            *ngFor="let img of selectedProject.images; let i = index"
+            [src]="img.url"
+            [alt]="img.alt"
+            [class.active]="i === activeImageIndex"
+            (click)="activeImageIndex = i"
+          />
+        </div>
+      </div>
+
+      <!-- Informações -->
+      <div class="project-modal__info">
+        <div class="project-modal__info__header">
+          <h2>{{ selectedProject.title }}</h2>
+          <span class="project-modal__info__date">📅 {{ selectedProject.completedAt }}</span>
+        </div>
+
+        <div class="project-modal__info__tags">
+          <span class="tag" *ngFor="let tech of selectedProject.technologies">{{ tech }}</span>
+        </div>
+
+        <p class="project-modal__info__description">{{ selectedProject.description }}</p>
+
+        <div class="project-modal__info__links">
+          <a *ngIf="selectedProject.githubUrl"
+             [href]="selectedProject.githubUrl"
+             target="_blank" rel="noopener"
+             class="modal-btn modal-btn--github">
+            <img src="assets/portfolio/github.png" alt="GitHub" class="modal-btn__icon">
+            Ver no GitHub
+          </a>
+          <a *ngIf="selectedProject.demoUrl"
+             [href]="selectedProject.demoUrl"
+             target="_blank" rel="noopener"
+             class="modal-btn modal-btn--demo">
+            🚀 Ver Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

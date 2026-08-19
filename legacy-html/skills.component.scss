@@ -1,0 +1,131 @@
+.skills {
+  padding: 6rem 5%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  &__group {
+    &__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(0,245,160,0.15);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__visual {
+    position: absolute;
+    right: -60px;
+    top: 8rem;
+    pointer-events: none;
+    opacity: 0.06;
+
+    &__img {
+      width: 350px;
+    }
+  }
+}
+
+.skill-card {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__icon { font-size: 1rem; }
+
+  &__name {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  &__level {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+
+  &__bar {
+    height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+
+    &__fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+      border-radius: 4px;
+      transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 0 8px rgba(0,245,160,0.4);
+    }
+  }
+}
+
+.certifications {
+  margin-top: 4rem;
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid rgba(0,245,160,0.1);
+  border-radius: 12px;
+  transition: border-color 0.25s, transform 0.25s;
+
+  &:hover {
+    border-color: rgba(0,245,160,0.3);
+    transform: translateY(-3px);
+  }
+
+  &__icon { font-size: 1.5rem; }
+
+  &__name {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  &__institution {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+}
