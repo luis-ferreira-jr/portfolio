@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { Download, MessageCircle, Mail, Terminal, GraduationCap, ChevronDown } from 'lucide-react'
+import { Download, MessageCircle, Mail, Terminal, GraduationCap } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../components/BrandIcons.jsx'
 import fotoLuis from '../assets/img/luis.jpeg'
 import './Home.css'
@@ -75,10 +74,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Link to="/projetos" className="home__scroll">
-        Role para conhecer meus projetos
-        <ChevronDown size={18} />
-      </Link>
     </main>
   )
 }
