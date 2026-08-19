@@ -1,3 +1,18 @@
+@keyframes home-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home {
+  padding-bottom: 32px;
+}
+
 .home__grid {
   display: flex;
   align-items: center;
@@ -7,18 +22,59 @@
 
 .home__conteudo {
   max-width: 560px;
+  animation: home-entrada 0.5s ease-out both;
 }
 
 .home__titulo {
   font-family: var(--fonte-titulo);
   font-weight: 400;
   font-size: clamp(2.2rem, 5vw, 3.2rem);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .home__titulo strong {
   color: var(--cor-destaque);
   font-weight: 400;
+}
+
+.home__badge-estudo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.home__badge-estudo svg {
+  color: var(--cor-destaque);
+  flex-shrink: 0;
+}
+
+/* #b7b7bf sobre #121214 ~ 9.5:1 de contraste, acima do mínimo AA (4.5:1) */
+.page__texto {
+  color: var(--cor-texto-suave);
+}
+
+.home__stack {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.home__stack-icone {
+  color: var(--cor-destaque);
+  margin-right: 2px;
+}
+
+.home__stack-tag {
+  padding: 5px 12px;
+  border: 1px solid var(--cor-destaque);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--cor-texto);
 }
 
 .home__links {
@@ -57,6 +113,10 @@
   color: var(--cor-texto);
 }
 
+.home__foto-wrap {
+  animation: home-entrada 0.6s ease-out 0.1s both;
+}
+
 .home__foto-borda {
   flex-shrink: 0;
   width: 280px;
@@ -64,6 +124,7 @@
   border: 2px solid var(--cor-destaque);
   border-radius: 50%;
   padding: 10px;
+  box-shadow: 0 0 60px -10px rgba(34, 212, 253, 0.35);
 }
 
 .home__foto {
@@ -78,10 +139,26 @@
     flex-direction: column-reverse;
     text-align: center;
   }
+  .home__badge-estudo,
+  .home__stack {
+    justify-content: center;
+  }
   .home__redes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: stretch;
+  }
+  .home__rede {
     justify-content: center;
   }
   .home__conteudo {
     max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home__conteudo,
+  .home__foto-wrap {
+    animation: none;
   }
 }
