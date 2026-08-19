@@ -1,13 +1,7 @@
-import img1 from '../assets/img/image 1.png'
-import img2 from '../assets/img/image 2.png'
-import img3 from '../assets/img/image 3.png'
+import { ExternalLink } from 'lucide-react'
+import { GithubIcon } from '../components/BrandIcons.jsx'
+import { projetos } from '../data/projects.js'
 import './Projects.css'
-
-const projetos = [
-  { src: img1, alt: 'Projeto 1 — Trilhas Inova-MA' },
-  { src: img2, alt: 'Projeto 2 — Trilhas Inova-MA' },
-  { src: img3, alt: 'Projeto 3 — Trilhas Inova-MA' },
-]
 
 export default function Projects() {
   return (
@@ -16,13 +10,36 @@ export default function Projects() {
         <span className="eyebrow">Trabalhos</span>
         <h1 className="page__titulo">Meus projetos</h1>
         <p className="page__texto">
-          Aqui estão alguns dos projetos concluídos dentro do programa Trilhas Inova-MA.
+          Projetos práticos desenvolvidos em cursos, formações e no programa Trilhas Inova
+          Maranhão. Os repositórios estão no meu GitHub.
         </p>
         <div className="projects__grid">
           {projetos.map((projeto) => (
-            <figure key={projeto.alt} className="projects__card">
-              <img src={projeto.src} alt={projeto.alt} />
-            </figure>
+            <article key={projeto.titulo} className="projects__card">
+              <h2 className="projects__titulo">{projeto.titulo}</h2>
+              <p className="projects__descricao">{projeto.descricao}</p>
+              <div className="projects__tecnologias">
+                {projeto.tecnologias.map((tec) => (
+                  <span key={tec} className="projects__tag">
+                    {tec}
+                  </span>
+                ))}
+              </div>
+              <div className="projects__links">
+                {projeto.links.map((link) => (
+                  <a
+                    key={link.href}
+                    className="btn projects__link"
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.tipo === 'github' ? <GithubIcon size={15} /> : <ExternalLink size={15} />}
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
