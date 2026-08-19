@@ -1,23 +1,60 @@
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
 }
 
 .projects__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio);
-  overflow: hidden;
   background-color: var(--cor-superficie);
+  transition: border-color 0.2s ease;
 }
 
-.projects__card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.projects__card:hover {
+  border-color: var(--cor-destaque);
 }
 
-.projects__card:hover img {
-  transform: scale(1.04);
+.projects__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.projects__descricao {
+  color: var(--cor-texto-suave);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.projects__tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projects__tag {
+  padding: 4px 11px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  color: var(--cor-texto-suave);
+}
+
+.projects__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.projects__link {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 400;
 }
