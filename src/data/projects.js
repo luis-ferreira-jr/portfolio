@@ -11,12 +11,14 @@ export const projetos = [
     ],
   },
   {
-    titulo: 'EcoChic — Site para Brechó',
+    titulo: 'Sistema de Gerenciamento de Usuários',
     descricao:
-      'Primeiro projeto em Angular: uma loja virtual de roupas de segunda mão, estruturada em componentes, modelos e serviços.',
-    tecnologias: ['Angular', 'TypeScript'],
+      'Aplicação full-stack para cadastro, listagem, edição e exclusão de usuários. Front-end em Angular consumindo uma API REST em Spring Boot, com validação de CPF, hash de senha com BCrypt e DTOs separados de request/response.',
+    tecnologias: ['Angular', 'TypeScript', 'Spring Boot', 'Java', 'PostgreSQL'],
     links: [
-      { label: 'Repositório', href: 'https://github.com/luis-ferreira-jr/ProjetoAngular', tipo: 'github' },
+      { label: 'Demo', href: 'https://projeto-angular-jade.vercel.app', tipo: 'demo' },
+      { label: 'Repositório (Frontend)', href: 'https://github.com/luis-ferreira-jr/ProjetoAngular', tipo: 'github' },
+      { label: 'Repositório (Backend)', href: 'https://github.com/luis-ferreira-jr/gerenciamento-backend', tipo: 'github' },
     ],
   },
 ]
